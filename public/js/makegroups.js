@@ -8,6 +8,7 @@ function makegroups() {
 
     // Determine array: [number of regular groups, names per group (size), remainder, total]
     groupMathArr = groupMath();
+    console.log(groupMathArr)
 
     //Unpack values from array.
     numGroups = groupMathArr[0]
@@ -32,7 +33,6 @@ function makegroups() {
 }
 
 function generateNames(category, length) {
-    console.log(length);
 
     var colors = ["Red", "Yellow", "Blue", "Green", "Purple", "Orange"];
     shuffledColors = shuffle(colors);
@@ -51,7 +51,6 @@ function generateNames(category, length) {
             nameArray[i] = i + 1;
         }
     }
-    console.log(nameArray);
 
     return nameArray;
 }
@@ -164,7 +163,7 @@ function dealNames(shuffledNames, numGroups, groupNames) {
         }
 
 
-    if(grouping = "numberper"){
+    if(grouping == "numberper"){
 
         let groupIndex = 0;
         let j = 1;
@@ -244,3 +243,4 @@ function getNames(){
 function previousGroup(){
     displayGroups(prevGroup);
 }
+

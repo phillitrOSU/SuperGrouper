@@ -94,3 +94,12 @@ tr td {
     border: solid 5px black;
 }
 
+#login-screen{
+    justify-self: center;
+    
+}
+
+
+#login-form > * {
+    margin: 5px;
+}
