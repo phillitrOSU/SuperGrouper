@@ -17,9 +17,14 @@ loginForm.addEventListener("submit", async function (e) {
         {
           method: "POST",
           body: loginJSON,
-        },
-      );
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+});
       
+/**
       //If request failed, log error.
       if (!loginResponse.ok) {
         const { message } = await loginResponse.json();
@@ -50,4 +55,5 @@ loginForm.addEventListener("submit", async function (e) {
       //Otherwise record user.
       const { user } = await authenticationResponse.json();
   });
+ */
 

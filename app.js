@@ -2,14 +2,19 @@
     SETUP
 */
 const fetch = require("node-fetch");
-var cors = require('cors')
+
 
 
 // Express
 var express = require('express');
 var app = express();
 app.use(express.static(__dirname + '/public'));
-app.use(cors())
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    next();
+  });
+
 PORT = 9105;
 
 // Handlebars
