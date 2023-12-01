@@ -9,19 +9,38 @@ loginForm.addEventListener("submit", async function (e) {
     formObject = Object.fromEntries(formData);
     loginJSON = JSON.stringify(formObject);
 
-    console.log(loginJSON);
+    //console.log(loginJSON);
 
+
+    const response = await fetch(
+      `https://authentication-microservice-production-a9ec.up.railway.app/signup`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          email: "trevor@gmail.com",
+          password: "password123",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    
+    if (!response.ok) {
+      const { message } = await response.json();
+      throw new Error(message);
+    }
     // Connect with microservice.
-    const loginResponse = await fetch(
-        `https://authentication-microservice-production-a9ec.up.railway.app/signup`,
-        {
-          method: "POST",
-          body: loginJSON,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
+    // const loginResponse = await fetch(
+    //     `https://authentication-microservice-production-a9ec.up.railway.app/login`,
+    //     {
+    //       method: "POST",
+    //       body: loginJSON,
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
 });
       
 /**
